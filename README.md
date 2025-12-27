@@ -10,8 +10,6 @@ This project implements an Apache Airflow DAG to automate the extraction and ana
 • Database: PostgreSQL
 
 • Language: Python 3.11
-
-• Containerization: Docker
  
 ---
  ## Project Workflow
