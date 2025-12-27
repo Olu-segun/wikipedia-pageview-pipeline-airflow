@@ -23,7 +23,7 @@ This project implements an Apache Airflow DAG to automate the extraction and ana
 4.	Analyze: Execute a SQL query to identify the company with the highest engagement.
 --
 ### 📁 Repository Structure
-<prep>
+<pre>
 Wikipedia-Pageview-Data-Pipeline/
 │
 ├── dags/
@@ -35,4 +35,4 @@ Wikipedia-Pageview-Data-Pipeline/
 ├── airenv/                                        # virtual environment
 ├── requirements.txt
 └── README.md
-</prep>
+</pre>
