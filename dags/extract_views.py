@@ -1,16 +1,15 @@
 import requests
 import pandas as pd
+from dotenv import load_dotenv
 import os
 
+load_dotenv()
 
 FILENAME = 'projectviews-20251226-090000.gz'
 
 def extract_company_views():
-        
-        
         try:
-            url = os.getenv("wikipedia_page_review_url")
-            
+            url = os.getenv("wikipedia_page_view_url")
             response = requests.get(url)
             
             if response.status_code != 200:

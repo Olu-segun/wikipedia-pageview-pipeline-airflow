@@ -1,14 +1,9 @@
-from airflow.decorators import DAG, task
-import pendulum
-from airflow.operators.python import PythonOperator
-import os
+from extract_views import extract_company_views
+from transform_views import transform_company_views
 
-DAG_ID = "wikipedia_company_views"
+def company_views_etl_pipeline():
+    raw_views = extract_company_views()   
+    transformed_views = transform_company_views(raw_views)
+    print(transformed_views)
 
-with DAG(
-    dag_id="wikipedia_company_views",
-    start_date=pendulum.datetime(2025, 12, 26),
-    schedule=None,
-    catchup=False
-) as dag:
-    ...
+company_views_etl_pipeline()

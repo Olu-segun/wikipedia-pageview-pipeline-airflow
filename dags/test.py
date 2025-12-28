@@ -18,12 +18,13 @@ df = pd.read_csv(filename, compression="gzip", sep=" ",
 df["page_title"] = df["page_title"].str.replace("_", " ")
 
 """Define companies of interest"""
-companies = ["Apple", "Microsoft", "Google", "Amazon", "Facebook"]
+companies = ["Apple", "Amazon", "Facebook", "Google", 
+                "Microsoft", "Tesla", "IBM", "Oracle"]
 
 """Filter rows where page_title matches one of the companies"""
 company_views = df[df["page_title"].isin(companies)][["page_title", "views"]] 
 
-summary = company_views.groupby("page_title")["views"].sum().reset_index()
+# summary = company_views.groupby("page_title")["views"].sum().reset_index()
 
-print(summary)
+print(company_views)
 
