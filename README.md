@@ -32,7 +32,10 @@ Wikipedia-Pageview-Data-Pipeline/
 │   │   ├── transform_views.py                        # transformation logic
 │   │   ├── load_views.py                             # loading logic
 │   │   └──                           
-├── airenv/                                        # virtual environment
+├── pyenv/
+├── logs
+├── config
+├── docker-compose.yaml                                    # virtual environment
 ├── requirements.txt
 └── README.md
 </pre>

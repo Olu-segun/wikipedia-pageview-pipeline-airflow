@@ -1,4 +1,5 @@
 __pycache__/
 *.pyc
 .env
-airenv
+pyenv
+projectviews-20251226-090000.gz
