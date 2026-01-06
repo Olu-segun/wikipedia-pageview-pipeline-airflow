@@ -1,19 +1,22 @@
 import pandas as pd
 
-def transform_company_views(df):
-    
-    if df is None:
-        raise ValueError("Input DataFrame is None. Extract step failed.")
-    
-    """Define companies of interest"""
-    companies = ["Apple", "Amazon", "Facebook", "Google", "Microsoft", "Tesla", "IBM", "Oracle"]
-    
-    """Filter rows where page_title matches one of the companies of interest"""
-    companies_views = df[df["page_title"].isin(companies)][["page_title", "views"]]
-     
-    """Summarize views by company of interest"""
-    summary = companies_views.groupby("page_title")["views"].sum().reset_index()
-    
-    return summary
-    
+
+def transform_company_views(filepath):
+    print(f"Reading file from: {filepath}")
+    try:
+        df = pd.read_csv(filepath)
+        
+        if "page_title" not in df.columns or "views" not in df.columns:
+            raise ValueError("CSV missing required columns")
+
+        # Aggregate views per company
+        summary = df.groupby("page_title")["views"].sum().reset_index()
+        out_path = "/opt/airflow/view_data/summary-20251226-090000.csv"
+        summary.to_csv(out_path, index=False)
+        return out_path
+
+    except Exception as e:
+        print(f"Error during transformation: {e}")
+        raise
+
 

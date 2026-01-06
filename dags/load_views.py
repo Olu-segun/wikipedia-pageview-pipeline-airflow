@@ -1,49 +1,43 @@
-import psycopg2
-from psycopg2 import sql
-from dotenv import load_dotenv
-import os
+import pandas as pd
+from airflow.providers.postgres.hooks.postgres import PostgresHook
 
-load_dotenv()
-
-def load_company_views(transformed_views):
+def load_company_views(filepath: str):
     try:
-        conn = psycopg2.connect(
-            host=os.getenv("PGHOST"),
-            dbname=os.getenv("PGDATABASE"),
-            user=os.getenv("PGUSER"),
-            password=os.getenv("PGPASSWORD"),
-            port=os.getenv("PGPORT")
-        )
+        # Read the summary CSV produced by transform step
+        df = pd.read_csv(filepath)
+
+        # Convert DataFrame rows into list of tuples
+        records = list(df.itertuples(index=False, name=None))
+
+        # Get Postgres connection from Airflow
+        postgres_hook = PostgresHook(postgres_conn_id="wikipedia_page_view")
+        conn = postgres_hook.get_conn()
         cur = conn.cursor()
 
         # Create table if not exists
         cur.execute("""
             CREATE TABLE IF NOT EXISTS wikipedia (
                 id SERIAL PRIMARY KEY,
-                page_title VARCHAR(100),
+                page_title VARCHAR(100) UNIQUE,
                 views INTEGER
-            );
+            )
         """)
 
-        # Insert query
-        insert_query = sql.SQL(
-            "INSERT INTO {table} (page_title, views) VALUES (%s, %s)"
-        ).format(table=sql.Identifier("wikipedia"))
+            # Clear old data to avoid duplicates 
+        cur.execute("TRUNCATE TABLE wikipedia RESTART IDENTITY;");
 
-        # Convert DataFrame rows into list of tuples
-        records = list(transformed_views.itertuples(index=False, name=None))
-
-        # Bulk insert
+        
+        insert_query = "INSERT INTO wikipedia (page_title, views) VALUES (%s, %s)"
         cur.executemany(insert_query, records)
 
         conn.commit()
-        print(f"Successfully inserted {len(records)} records.")
+        print(f"✅ Successfully inserted {len(records)} records into Postgres.")
 
         cur.close()
         conn.close()
 
-    except psycopg2.Error as e:
-        print(f"Database error: {e}")
-        if conn:
+    except Exception as e:
+        print(f"❌ Database error: {e}")
+        if 'conn' in locals() and conn:
             conn.rollback()
             conn.close()

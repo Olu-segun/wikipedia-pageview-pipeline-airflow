@@ -2,4 +2,5 @@ __pycache__/
 *.pyc
 .env
 pyenv
-projectviews-20251226-090000.gz
+view_data/*.csv
+view_data/*.gz
