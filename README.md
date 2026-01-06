@@ -1,3 +1,4 @@
+
 ## Project Description
 
 This project implements an Apache Airflow–orchestrated ETL pipeline to automate the extraction, transformation, and loading of Wikipedia pageview data.
@@ -75,7 +76,10 @@ The following screenshots demonstrate successful pipeline execution and data val
 </p>
 
     • PostgreSQL Query Results:
-        images/query_run.jpeg
+<p align= "center" > 
+    <img src="images/query_run.jpeg" width="600"> 
+</p>
+        
 ---
 ## 🚀 Key Highlights
 
