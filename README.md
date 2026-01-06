@@ -1,40 +1,97 @@
 ## Project Description
 
-This project implements an Apache Airflow DAG to automate the extraction and analysis of Wikipedia pageview data. Specifically, it tracks hourly pageview trends for some big tech companies: Apple, Amazon, Facebook, Google, Microsoft, Tesla, IBM, Oracle.
+This project implements an Apache Airflow–orchestrated ETL pipeline to automate the extraction, transformation, and loading of Wikipedia pageview data.
+The pipeline tracks hourly pageview activity for selected global technology companies — Apple, Amazon, Facebook, Google, Microsoft, Tesla, IBM, and Oracle — and stores the processed results in a PostgreSQL database for analysis.
+
+The goal of this project is to demonstrate end-to-end data pipeline development, including data ingestion from external sources, transformation logic, database loading, and analytical querying.
 
 ---
 ## Tech Stack
 
-• Orchestrator: Apache Airflow (DAGs)
+•	Orchestration: Apache Airflow
 
-• Database: PostgreSQL
+•	Programming Language: Python 3.11
 
-• Language: Python 3.11
+•	Database: PostgreSQL
+
+•	Data Processing: Pandas
+
+•	Infrastructure: Docker & Docker Compose
+
+•	Data Source: Wikimedia Pageviews Dumps
+
  
 ---
  ## Project Workflow
  
-1.	Extract: Download and unzip Wikipedia pageview data for a specific hour in December 2025.
+1.	Extract
 
-2.	Transform: Filter the dataset to isolate the targeted companies and extract pageview counts.
+• Downloads hourly Wikipedia pageview data (compressed .gz format) for a specified hour in December 2025.
 
-3.	Load: Insert the processed data into a PostgreSQL database.
+• Stores the raw file locally for processing.
 
-4.	Analyze: Execute a SQL query to identify the company with the highest engagement.
+2. Transform
+
+• Decompresses and parses the dataset.
+
+• Filters records to include only predefined companies of interest.
+
+• Aggregates total pageviews per company.
+
+3. Load
+
+• Inserts the transformed dataset into a PostgreSQL table.
+
+• Ensures the target table exists before loading.
+
+4. Analyze
+
+• Runs SQL queries to identify engagement trends.
+
+• Determines the company with the highest pageview count for the selected time window
+
 --
 ### 📁 Repository Structure
 <pre>
 Wikipedia-Pageview-Data-Pipeline/
 │
 ├── dags/
-│   │   ├── wikipedia_company_views_etl_pipeline.py   # main DAG definition
-│   │   ├── extract_views.py                          # extraction logic
-│   │   ├── transform_views.py                        # transformation logic
-│   │   ├── load_views.py                             # loading logic
-│   │   └──                           
-├── pyenv/
-├── logs
-├── docker-compose.yaml                                    
-├── requirements.txt
+│   ├── wikipedia_company_views_etl_pipeline.py   # Main Airflow DAG
+│   ├── extract_views.py                          # Data extraction logic
+│   ├── transform_views.py                        # Data transformation logic
+│   ├── load_views.py                             # Data loading logic
+│
+├── pyenv/                                        # Python virtual environment
+├── logs/                                         # Airflow task logs
+├── docker-compose.yaml                           # Airflow & Postgres services
+├── requirements.txt                              # Python dependencies
 └── README.md
 </pre>
+
+## 📈 Logs & Execution Evidence
+The following screenshots demonstrate successful pipeline execution and data validation:
+
+• Airflow DAG Run:
+images/airflow_ui_run.jpeg
+
+• PostgreSQL Query Results:
+images/query_run.jpeg
+
+---
+## 🚀 Key Highlights
+
+• End-to-end ETL pipeline using Apache Airflow
+
+• Real-world external data ingestion (Wikimedia dumps)
+
+• Modular, reusable Python code structure
+
+• PostgreSQL-based analytical storage
+
+• Dockerized environment for easy setup and reproducibility
+
+## 🎯 Use Cases
+
+Monitoring public interest trends for major technology companies
+
+Demonstrating data engineering and analytics engineering skills
