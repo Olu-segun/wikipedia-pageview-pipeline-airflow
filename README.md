@@ -72,12 +72,12 @@ The following screenshots demonstrate successful pipeline execution and data val
 
 ### Airflow DAG Run:
 <p align= "center" > 
-    <img src="images/airflow_ui_run.jpeg" width="600"> 
+    <img src="images/airflow_ui_run.jpeg" width="800"> 
 </p>
 
 ### PostgreSQL Query Results:
 <p align= "center" > 
-    <img src="images/query_run.jpeg" width="600"> 
+    <img src="images/query_run.jpeg" width="800"> 
 </p>
         
 ---
