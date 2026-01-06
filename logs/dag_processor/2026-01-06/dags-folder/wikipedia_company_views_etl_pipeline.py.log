@@ -246,3 +246,6 @@
 {"timestamp":"2026-01-06T09:15:10.560970","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/wikipedia_company_views_etl_pipeline.py","logger":"airflow.models.dagbag.DagBag"}
 {"timestamp":"2026-01-06T09:15:41.458215","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/wikipedia_company_views_etl_pipeline.py","logger":"airflow.models.dagbag.DagBag"}
 {"timestamp":"2026-01-06T09:16:12.083964","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/wikipedia_company_views_etl_pipeline.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2026-01-06T09:16:43.378148","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/wikipedia_company_views_etl_pipeline.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2026-01-06T09:17:14.845960","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/wikipedia_company_views_etl_pipeline.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2026-01-06T09:17:45.301781","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/wikipedia_company_views_etl_pipeline.py","logger":"airflow.models.dagbag.DagBag"}

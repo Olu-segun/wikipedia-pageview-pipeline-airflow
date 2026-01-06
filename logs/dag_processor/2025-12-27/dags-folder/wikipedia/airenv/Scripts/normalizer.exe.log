@@ -1,2 +1,0 @@
-{"timestamp":"2025-12-27T08:19:37.259763","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/wikipedia/airenv/Scripts/normalizer.exe","logger":"airflow.models.dagbag.DagBag"}
-{"timestamp":"2025-12-27T08:19:37.318634","level":"info","event":"File /opt/airflow/dags/wikipedia/airenv/Scripts/normalizer.exe:__main__.py assumed to contain no DAGs. Skipping.","logger":"airflow.models.dagbag.DagBag"}
