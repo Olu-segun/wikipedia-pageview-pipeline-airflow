@@ -26,29 +26,29 @@ The goal of this project is to demonstrate end-to-end data pipeline development,
  
 1.	Extract
 
-    -   Downloads hourly Wikipedia pageview data (compressed .gz format) for a specified hour in December 2025.
+    •   Downloads hourly Wikipedia pageview data (compressed .gz format) for a specified hour in December 2025.
 
-    -   Stores the raw file locally for processing.
+    •    Stores the raw file locally for processing.
 
 2. Transform
 
-    -   Decompresses and parses the dataset.
+    •   Decompresses and parses the dataset.
 
-    -   Filters records to include only predefined companies of interest.
+    •   Filters records to include only predefined companies of interest.
 
-    -  Aggregates total pageviews per company.
+    •  Aggregates total pageviews per company.
 
 3. Load
 
-    -   Inserts the transformed dataset into a PostgreSQL table.
+    •   Inserts the transformed dataset into a PostgreSQL table.
 
-    -   Ensures the target table exists before loading.
+    •   Ensures the target table exists before loading.
 
 4. Analyze
 
-    -  Runs SQL queries to identify engagement trends.
+    •  Runs SQL queries to identify engagement trends.
 
-    -  Determines the company with the highest pageview count for the selected time window
+    •  Determines the company with the highest pageview count for the selected time window
 ---
 ### 📁 Repository Structure
 <pre>
