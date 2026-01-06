@@ -70,12 +70,12 @@ Wikipedia-Pageview-Data-Pipeline/
 ## 📈 Logs & Execution Evidence
 The following screenshots demonstrate successful pipeline execution and data validation:
 
-    • Airflow DAG Run:
+### Airflow DAG Run:
 <p align= "center" > 
     <img src="images/airflow_ui_run.jpeg" width="600"> 
 </p>
 
-    • PostgreSQL Query Results:
+### PostgreSQL Query Results:
 <p align= "center" > 
     <img src="images/query_run.jpeg" width="600"> 
 </p>
