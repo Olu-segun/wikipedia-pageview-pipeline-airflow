@@ -4,5 +4,5 @@ __pycache__/
 pyenv
 view_data/
 plugins/
-logs/*
+logs
 config/*.yaml

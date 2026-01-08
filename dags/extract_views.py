@@ -10,7 +10,9 @@ FILENAME = "/opt/airflow/view_data/pageviews-20251226-090000.csv"
 LOCAL_GZ = "/opt/airflow/view_data/pageviews-20251226-090000.gz"
 
 def extract_company_views():
+    
     url = os.getenv("wikipedia_page_view_url")
+    
     if not url:
         raise ValueError("Environment variable 'wikipedia_page_view_url' is not set")
 
