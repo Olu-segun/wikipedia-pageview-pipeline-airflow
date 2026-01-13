@@ -8,7 +8,7 @@ from load_views import load_company_views
 
 with DAG(
     dag_id="wikipedia_page_view",
-    schedule=None,
+    schedule= None,
     start_date=datetime(2025, 12, 28),
     catchup=False,
     tags=["wikipedia", "etl"]

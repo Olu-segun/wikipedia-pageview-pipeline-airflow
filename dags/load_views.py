@@ -24,7 +24,7 @@ def load_company_views(filepath: str):
         """)
 
         """Clear old data to avoid duplicates"""
-        cur.execute("TRUNCATE TABLE wikipedia RESTART IDENTITY;");
+        cur.execute("TRUNCATE TABLE wikipedia RESTART IDENTITY;")
 
         
         insert_query = "INSERT INTO wikipedia (page_title, views) VALUES (%s, %s)"
